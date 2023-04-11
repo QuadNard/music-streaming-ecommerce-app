@@ -1,31 +1,28 @@
 import React, { useContext } from 'react'
 import { ProductsContext } from '@/state/ProductsContext';
-import Header from '@/components/Header'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import PlayerCard from '@/components/PlayerCard'
-import ShoppingCartSlideOver from '@/components/ShoppingCart'
-import { useRef, useState, useEffect } from 'react'
+
+
 
 
 
 function AudioPlayer () {
       const { products, loading } = useContext(ProductsContext)
-       const [cartSliderIsOpen, setCartSliderIsOpen] = useState(false)
 
 
 
     return (
-        <div>
-            <Header  setCartSliderIsOpen={setCartSliderIsOpen}/>
-            <ShoppingCartSlideOver
-                        open={cartSliderIsOpen}
-                   setCartSliderIsOpen={setCartSliderIsOpen}
-                     />           
-                     <div className='text-center bg-black '>
-                        <h1 className='text-white'>Ob</h1>
-                        </div>   
-   <div className='container'>
-        <div className='slideshow'>
+        <div className="container mx-auto px-6 py-16">
+            <div className="mx-auto sm:w-1/2 lg:w-5/12 xl:w-[30%]">
+          <div>
+            <h1 className="text-3xl p-2 bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">Music Player </h1>
+             <p className="mt-2 text-gray-600">Listen to are collection now</p>
+        </div>
+            <Link href="/">
+          <a className='no-underline hover:underline ...'>Go back To Home</a>
+            </Link>
         {products.map((product, index) => (
             <motion.div
             animate={'animate'}
@@ -36,27 +33,10 @@ function AudioPlayer () {
             </motion.div>
         ))}
         </div>
-   </div>
-   </div>
+        </div>
     )
 }
 
 
 export default AudioPlayer
 
-
-
-/* 
-<motion.div ref={carousel} className='carousel' whileTap={{cursor: "grabbing"}}>
-                    <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className='inner-carousel'>
-                         {products.map((product) => {
-                            return (
-                                <motion.div key={product.id} className='item'>
-                                    <PlayerCard product={product} />
-                                </motion.div>
-                            )
-                         })}
-                    </motion.div>
-                </motion.div>
-
-*/  

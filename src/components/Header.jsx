@@ -6,6 +6,7 @@ import {HiOutlineMagnifyingGlass} from 'react-icons/hi'
 import { TfiClose } from "react-icons/tfi";
 import Image from 'next/image'
 import Logo from '../assets/Logo.png'
+import Link from 'next/link'
 
 
 const Header = ({ setCartSliderIsOpen }) => {
@@ -34,13 +35,13 @@ const Header = ({ setCartSliderIsOpen }) => {
         <div className="hidden lg:inline">
           <ul className="flex justify-center hover:cursor-pointer">
             <li className="py-1 px-3 hover:rounded hover:bg-black/5">
-             Home 
+              <Link href="/"> Home </Link>     
             </li>
             <li className="py-1 px-3 hover:rounded hover:bg-black/5">
-             Business
+               <Link href="/business/about"> Business </Link>
             </li>
             <li className="py-1 px-3 hover:rounded hover:bg-black/5">
-              Support
+                <Link href="/support/testimonials"> Support </Link>
             </li>
           </ul>
         </div>
@@ -52,7 +53,7 @@ const Header = ({ setCartSliderIsOpen }) => {
             <HiOutlineShoppingBag
               className='flex-shrink-0 h-5 w-5 text-sky-700 group-hover:text-sky-800'
             />
-        
+             <span className=' text-sky-700 group-hover:text-sky-800'>({items.length})</span>
             <span className='sr-only'>items in cart, view bag</span>
           </div>
         </div>
@@ -61,16 +62,6 @@ const Header = ({ setCartSliderIsOpen }) => {
             Menu
           </button>
         </div>
-        <div className='lg:hidden'  onClick={() => setCartSliderIsOpen(open => !open)}>
-             <HiOutlineShoppingBag
-              className='flex-shrink-0 h-5 w-5 text-sky-700 group-hover:text-sky-800'
-            />
-            <span className='sr-only'>items in cart, view bag</span>
-        </div>
-        <span className='ml-2 text-sm font-medium text-sky-700 group-hover:text-sky-800'>
-              ( {items.length} )
-            </span>
-
         <div
           className={
             nav
@@ -82,12 +73,20 @@ const Header = ({ setCartSliderIsOpen }) => {
             <TfiClose onClick={handleNav} className="rounded p-1 hover:bg-black/5" size={28} />
           </div>
           <ul className="pt-8 px-6">
+             <li className="py-3 pl-3 hover:rounded hover:bg-black/5">
+                 <Link href="/"> Home </Link>     
+            </li>  
             <li className="py-3 pl-3 hover:rounded hover:bg-black/5">
-             Business
+          <Link href="/business/about"> Business </Link>
             </li>
             <li className="py-3 pl-3 hover:rounded hover:bg-black/5">
-                Support
+                 <Link href="/support/testimonials"> Support </Link>
             </li>    
+             <li className="py-3 pl-3 hover:rounded hover:bg-black/5"  onClick={() => setCartSliderIsOpen(open => !open)}>
+                Cart 
+                <span className=' text-sky-700 group-hover:text-sky-800'>({items.length})</span>
+                <span className='sr-only'>items in cart, view bag</span>
+            </li>   
           </ul>
         </div>
       </header>

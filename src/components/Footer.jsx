@@ -1,40 +1,96 @@
 import React from 'react'
+import {Container} from './Container'
+import Link from 'next/link'
+import {AiOutlineYoutube} from 'react-icons/ai'
+import {AiOutlineInstagram} from 'react-icons/ai'
+import Image from 'next/image'
+import Logo from '../assets/Logo.png'
+
+
+const footerLinks = [
+  {
+    title: "Product",
+    links: [
+      { title: "Features", href: "#" },
+      { title: "Integrations", href: "#" },
+      { title: "Pricing", href: "#" },
+      { title: "Changelog", href: "#" },
+      { title: "Docs", href: "#" },
+      { title: "Linear Method", href: "#" },
+      { title: "Download", href: "#" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { title: "About us", href: "#" },
+      { title: "Blog", href: "#" },
+      { title: "Careers", href: "#" },
+      { title: "Customers", href: "#" },
+      { title: "Brand", href: "#" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { title: "Community", href: "#" },
+      { title: "Contact", href: "#" },
+      { title: "DPA", href: "#" },
+      { title: "Terms of service", href: "#" },
+    ],
+  },
+  {
+    title: "Developers",
+    links: [
+      { title: "API", href: "#" },
+      { title: "Status", href: "#" },
+      { title: "GitHub", href: "#" },
+    ],
+  },
+];
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 pt-10 pb-8">
-      <div className="flex flex-wrap justify-center">
-        <div className="w-full lg:w-1/3 px-4 mb-10 lg:mb-0">
-          <h2 className="text-lg font-bold mb-4 text-white">About Us</h2>
-          <p className="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod enim eu felis egestas lobortis. Integer lobortis accumsan arcu non consequat.</p>
-        </div>
-        <div className="w-full lg:w-1/3 px-4 mb-10 lg:mb-0">
-          <h2 className="text-lg font-bold mb-4 text-white">Contact Us</h2>
-          <p className="text-gray-400">123 Main Street</p>
-          <p className="text-gray-400">New York, NY 10001</p>
-          <p className="text-gray-400">(123) 456-7890</p>
-        </div>
-        <div className="w-full lg:w-1/3 px-4 mb-10 lg:mb-0">
-          <h2 className="text-lg font-bold mb-4 text-white">Follow Us</h2>
-          <div className="flex">
-            <a href="#" className="text-gray-400 hover:text-white mr-4">
-              <i className="fab fa-facebook fa-lg"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white mr-4">
-              <i className="fab fa-twitter fa-lg"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white mr-4">
-              <i className="fab fa-instagram fa-lg"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              <i className="fab fa-pinterest fa-lg"></i>
-            </a>
+    <footer className="mt-12 border-t border-transparent-white py-[5.6rem] text-sm">
+      <Container className="flex flex-col justify-between lg:flex-row">
+      <div>
+        <div className="flex h-full flex-row justify-between lg:flex-col">
+          <div className="flex items-center text-grey">
+                  <Image
+              className="h-4 w-10/12"
+              src={Logo}
+                alt="Logo"
+            /> 
+          </div>
+          <div className="mt-auto flex space-x-4 text-grey">
+            <AiOutlineYoutube className="h-4 w-4" />
+            <AiOutlineInstagram className="h-4 w-4" />
           </div>
         </div>
       </div>
-      <div className="mt-8 text-center">
-        <p className="text-gray-400">&copy; 2023 Company Name. All rights reserved.</p>
+      <div className="flex flex-wrap">
+        {footerLinks.map((column) => (
+          <div
+            key={column.title}
+            className="mt-10 min-w-[50%] lg:mt-0 lg:min-w-[18rem]"
+          >
+            <h3 className="mb-3 font-medium">{column.title}</h3>
+            <ul>
+              {column.links.map((link) => (
+                <li key={link.title} className="[&_a]:last:mb-0">
+                  <Link
+                    className="mb-3 block text-grey transition-colors hover:text-off-white"
+                    href={link.href}
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
+    </Container>
     </footer>
   );
 }
