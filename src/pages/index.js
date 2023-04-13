@@ -5,6 +5,7 @@ import { Button, IconWrapper } from '@/components/button';
 import { Hero, HeroTitle, HeroSubtitle } from '@/components/hero';
 import { Header } from '@/components/header';
 import ShoppingCartSlideOver from '@/components/shoppingCart';
+import Logo from '../assets/Headphones.png';
 import {BiChevronRight } from "react-icons/bi"
 import {SlSocialSpotify} from "react-icons/sl"
 import {TbBrandBeats} from "react-icons/tb"
