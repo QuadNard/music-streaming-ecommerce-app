@@ -4,6 +4,7 @@ import { Container } from '@/components/container';
 import { Button, IconWrapper } from '@/components/button';
 import { Hero, HeroTitle, HeroSubtitle } from '@/components/hero';
 import { Header } from '@/components/header';
+import {FaTiktok} from "react-icons/fa"
 import ShoppingCartSlideOver from '@/components/shoppingCart';
 import Logo from '../assets/Headphones.png';
 import {BiChevronRight } from "react-icons/bi"
@@ -97,16 +98,13 @@ export default function HomePage({ prices = [] }){
                   </Link>
                   
                   <Link href='/'>
-                  <SlSocialSpotify className="h-6 w-6 hover:text-white transition-colors" />
+                  <FaTiktok className="h-6 w-6 hover:text-white transition-colors" />
                 </Link>
 
                   <Link href='/'>
                   <AiOutlineInstagram className="h-6 w-6 hover:text-white transition-colors" />
                </Link>
                   
-                  <Link href='/'>
-                  <AiOutlineFacebook className="h-6 w-6 hover:text-white transition-colors" />
-                 </Link>
                 </div>
            </div>
            </div>

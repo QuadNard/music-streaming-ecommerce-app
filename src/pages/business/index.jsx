@@ -19,7 +19,7 @@ const features = [
     icon: AiFillUnlock,
   },
   {
-    name: 'Database backups.',
+    name: 'Music Player',
     description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
     icon: AiOutlineCloudServer,
   },
@@ -42,7 +42,7 @@ export default function Business() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About Us</p>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About Me</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 Music is the universal language that connects us across the globe.
               </p>
