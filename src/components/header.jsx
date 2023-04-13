@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Logo } from './icons/logo';
+import Image from 'next/image';
+import Logo from '../assets/Headphones.png';
 import { useEffect, useState } from 'react';
 import { HamburgerIcon } from './icons/hamburger';
 import { Container } from './container';
@@ -39,7 +40,7 @@ return () => {
       <header className='fixed top-0 left-0 w-full border-b border-white-a08 backdrop-blur-[12px]'>
         <Container className='flex h-navigation-height'>
             <Link  className='flex items-center text-md' href='/'>
-                <Logo className="w-[1.8rem] h-[1.8rem] mr-4" /> MaadSounds 
+                <Image src={Logo} alt='logo' width={100} height={100} className="mr-4 h-4 w-4" /> MaadSounds
             </Link>
       
         <div
@@ -67,13 +68,13 @@ return () => {
                   <Link href='/'>Home</Link>
                 </li>
                  <li>
-                  <Link href='/'>Tunes</Link>
+                  <Link href='/audio/player'>Beats</Link>
                 </li>
                  <li>
-                  <Link href='/' className='md:hidden lg:block'>Business</Link>
+                  <Link href='/business' className='md:hidden lg:block'>Business</Link>
                 </li>
                  <li>
-                  <Link href='/' className='md:hidden lg:block'>Support</Link>
+                  <Link href='/support' className='md:hidden lg:block'>Support</Link>
                 </li>
               </ul>
             </nav>

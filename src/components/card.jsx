@@ -36,12 +36,12 @@ const Card = ({ price }) => {
         <Image
             src={product.images[0]}
             alt='product image'
-                    width={361}
-                    height={361}
+                    width={400}
+                    height={400}
                   className="mt-[12.8] h-full w-full object-cover object-center" 
                      />
           </div> 
- <p className='mt-1 text-lg font-medium text-grey'>
+ <p className='mt-1 text-lg font-medium text-sky-blue'>
             {(unit_amount / 100).toLocaleString('en-CA', {
               style: 'currency',
               currency: 'CAD'

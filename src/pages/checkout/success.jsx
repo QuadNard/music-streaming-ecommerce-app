@@ -46,8 +46,8 @@ function CheckoutSuccessPage() {
             Thanks for ordering
           </p>
           <p className='mt-2 text-base text-gray-500'>
-            We appreciate your order, we’re currently processing it. So hang
-            tight and we’ll send you confirmation very soon!
+            We appreciate your order, were currently processing it. So hang
+            tight and well send you confirmation very soon!
           </p>
 
           <dl className='mt-12 text-sm font-medium'>

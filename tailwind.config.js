@@ -33,6 +33,8 @@ module.exports = {
       grey: "#858699",
       "grey-dark": "#222326",
       "primary-text": "#b4bcd0",
+       "lime-green": "#00ff00",
+       "sky-blue": "#00ffff",
      },
      spacing: {
       0: "0",

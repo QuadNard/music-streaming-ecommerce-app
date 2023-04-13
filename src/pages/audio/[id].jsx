@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { useContext } from 'react';
 import * as Icons from '@/components/Icons';
 import Link from 'next/link';
+import { Button } from '@/components/button';
 
 
 
@@ -20,11 +21,12 @@ return (
 <p>Loading...</p>
 ) : product ? (
 <>
-<div className='bg-[#5f7a61]'>
-<Link href='/audio/player'>
-  <button className='bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded'>
-                 Go back 
-  </button>
+<div className='flex flex-col items-center bg-page-gradient '>
+  
+    <Link href='/audio/player'>
+        <Button className='mt-5'>
+     Go Back 
+      </Button>
     </Link>
     </div>
 <div className='body'>

@@ -3,7 +3,10 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {HiOutlineXMark } from "react-icons/hi2";
 import { useCart } from '../context/CartContext'
+
 import { checkout } from '../lib/checkout'
+import { Button } from './button';
+import Link from 'next/link';
 
 export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
   const { items, removeItem } = useCart()
@@ -135,26 +138,28 @@ export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
                       <p className='mt-0.5 text-sm text-gray-500'>
                         Shipping and taxes calculated at checkout.
                       </p>
-                      <div className='mt-6'>
-                        <a
-                          href='#'
+                      <div className='mt-6 text-lime-green'>
+                        <Link href="#">
+                        <Button
+                            type='button'
                           onClick={handleCheckout}
-                          className='flex items-center justify-center rounded-md border border-transparent bg-emerald-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-emerald-700'
+                          className='flex items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium  shadow-sm hover:bg-emerald-700'
                         >
                           Checkout
-                        </a>
+                        </Button>
+                        </Link>
                       </div>
                       <div className='mt-6 flex justify-center text-center text-sm text-gray-500'>
                         <p>
                           or{' '}
-                          <button
+                           <Button
                             type='button'
                             className='font-medium text-emerald-600 hover:text-emerald-500'
                             onClick={() => setCartSliderIsOpen(false)}
                           >
                             Continue Shopping
                             <span aria-hidden='true'> &rarr;</span>
-                          </button>
+                       </Button>
                         </p>
                       </div>
                     </div>
