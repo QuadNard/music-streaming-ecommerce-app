@@ -42,10 +42,10 @@ export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
                 leaveTo='translate-x-full'
               >
                 <Dialog.Panel className='pointer-events-auto w-screen max-w-md'>
-                  <div className='flex h-full flex-col overflow-y-scroll bg-white shadow-xl'>
+                  <div className='flex h-full flex-col overflow-y-scroll bg-grey shadow-xl'>
                     <div className='flex-1 overflow-y-auto py-6 px-4 sm:px-6'>
                       <div className='flex items-start justify-between'>
-                        <Dialog.Title className='text-lg font-medium text-gray-900'>
+                        <Dialog.Title className='text-lg font-medium text-black-900'>
                           {' '}
                           Shopping cart{' '}
                         </Dialog.Title>
@@ -72,8 +72,10 @@ export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
                                 <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
                                   <img
                                     src={price.product.images[0]}
-                                    alt={price.product.description}
-                                    className='h-full w-full object-cover object-center'
+                                    alt='price product'
+                                    width={55}
+                                    height={55}
+                                    className='object-cover object-center'
                                   />
                                 </div>
 
@@ -106,7 +108,7 @@ export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
                                       <button
                                         type='button'
                                         onClick={() => removeItem(price.id)}
-                                        className='font-medium text-rose-400 hover:text-rose-300'
+                                        className='text-rose-400 hover:text-rose-300'
                                       >
                                         Remove
                                       </button>

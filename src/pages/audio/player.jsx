@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
 import { ProductsContext } from '@/state/ProductsContext';
-import { motion } from 'framer-motion'
 import Link from 'next/link'
-import PlayerCard from '@/components/PlayerCard'
+import PlayerCard from '@/components/playerCard'
 
 
 
@@ -21,16 +20,13 @@ function AudioPlayer () {
              <p className="mt-2 text-gray-600">Listen to are collection now</p>
         </div>
             <Link href="/">
-          <a className='no-underline hover:underline ...'>Go back To Home</a>
+          <p className='no-underline hover:underline ...'>Go back To Home</p>
             </Link>
-        {products.map((product, index) => (
-            <motion.div
-            animate={'animate'}
-            initial={'initial'}
-            key={index}
+        {products.map((product ) => (
+            <div key={product.id} 
             >
             <PlayerCard product={product} key={product.id} />
-            </motion.div>
+            </div>
         ))}
         </div>
         </div>

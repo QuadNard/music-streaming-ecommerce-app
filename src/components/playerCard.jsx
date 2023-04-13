@@ -18,7 +18,7 @@ const PlayerCard = ({ product }) => {
                                 </div>
                             </div>
 
-                           <Image  src={product.image} width={100} height={100}  className="absolute -bottom-1 right-6 w-[6rem] transition duration-300 rounded-md group-hover:scale-[1.4]" />
+                           <Image  src={product.image} width={100} height={100}  className="absolute -bottom-1 right-6 w-[6rem] transition duration-300 rounded-md group-hover:scale-[1.4]" alt="product" />
                         </div>
                     </div>
                 </div>
@@ -26,13 +26,3 @@ const PlayerCard = ({ product }) => {
 }
 
 export default PlayerCard;
-
-
-
-
-
-
-
-
-
-

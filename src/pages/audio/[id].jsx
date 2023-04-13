@@ -31,7 +31,7 @@ return (
     <div className='music-player'>
          <h1 className='music-name'>{product.name}</h1>
          <p className='description-name'>{product.description}</p>
-          <Image  src={product.image} className='disk'/>         
+          <Image  src={product.image} className='disk' alt='Image' width={180} height={180}/>         
                <Player product={product} /> 
     </div>
 </div>
@@ -48,19 +48,24 @@ export default IdPlayer
 
 function Player({ product }) {
  let [playing, setPlaying] = useState(false);
+
+const [percentComplete, setPercentComplete] = useState(0);
+const [audioPlaying, setAudioPlayer] = useState(null);
+const [currentTime, setCurrentTime] = useState(0);
+const [sliderValue, setSliderValue] = useState(0);
+const [duration, setDuration] = useState(0);
+const [volume, setVolume] = useState(40);
 const [audio ] = useState(new Audio(product.mp3Url));
-
-
-const [volume, setVolume] = useState(30);
-
-
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [percentComplete, setPercentComplete] = useState(0);
+const router = useRouter()
 
 
 
 
+
+
+
+
+// Play or pause audio
   useEffect(() => {
     playing ? audio.play() : audio.pause();
      if(audio) {
@@ -80,9 +85,10 @@ const [volume, setVolume] = useState(30);
     };
 
   }, [playing, audio, volume]);
-
+ 
+// Calculate percentage of audio played
 useEffect(() => {
-    // Calculate percentage of audio played
+   
     if (duration !== 0) {
       setPercentComplete((currentTime / duration) * 100);
     }
@@ -90,21 +96,59 @@ useEffect(() => {
 
 
 
-
+// skip forwards or backwards by 10 seconds
  function handleSkip(forward) {
-    audio.currentTime += forward ? 10 : -10; // skip forwards or backwards by 10 seconds
+    audio.currentTime += forward ? 10 : -10; 
   }
 
-     const formatTime = (time) => {
+  // Format time to mm:ss
+  const formatTime = (time) => {
   const minutes = Math.floor(time / 60);
   const seconds = Math.floor(time % 60);
   return `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
 };
 
+// Stop audio when navigating away from page
+useEffect(() => {
+  setAudioPlayer(audio)
+  const handleRouteChange = () => {
+  if(playing){
+    audio.pause();
+  }
+}
+router.events.on('routeChangeStart', handleRouteChange)
+return() => {
+  audio.pause();
+  audio.currentTime = 0;
+  setAudioPlayer(null)
+  router.events.off('routeChangeStart', handleRouteChange);
+}
+},[router, playing])
+
+useEffect(() => {
+    if (audioPlaying) {
+      if (playing) {
+        audioPlaying.play();
+      } else {
+        audioPlaying.pause();
+      }
+    }
+  }, [playing, audioPlaying]);
+
+   const handleSliderChange = (event) => {
+    setSliderValue(event.target.value);
+    if (audioPlaying) {
+      audioPlaying.currentTime = event.target.value;
+    } else {
+      console.log("No audio player");
+    }
+  };
+
+
 return (
   <>
       <div className='song-slider'>
-                <input type='range' value='0' className='seek-bar' />
+                <input type='range'  className='seek-bar' value={percentComplete} onChange={handleSliderChange }   />
                 <span className='current-time'>{formatTime(currentTime)}</span>
                 <span className='song-duration'>{formatTime(duration)}</span>   
            <div className='flex  items-center justify-center'>
@@ -118,8 +162,9 @@ return (
 
 
 
-
+//  Audio Player controls 
 function PlayerControls({ playing, onPlayPause, onSkip, }) {
+
   
   return (
     <div>
