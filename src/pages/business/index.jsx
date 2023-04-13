@@ -2,7 +2,6 @@ import { AiFillUnlock, AiOutlineCloudServer} from 'react-icons/ai'
 import { Container } from '@/components/container';
 import { Header } from '@/components/header';
 import {GoRadioTower} from 'react-icons/go'
-import Logo from '@/assets/About.jpeg'
 import ShoppingCartSlideOver from '@/components/shoppingCart';
 import React, {useState} from 'react';
 
@@ -60,7 +59,7 @@ export default function Business() {
             </div>
           </div>
           <img
-            src={Logo}
+            src='https://i.imgur.com/lBkN0Wz.jpg'
             alt="Product screenshot"
             className="mt-10 w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
             width={100}
