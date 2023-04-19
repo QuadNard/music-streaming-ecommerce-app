@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['files.stripe.com', 'grngfdjdflpeheocxgkj.supabase.co'],
+    domains: ['files.stripe.com', 'grngfdjdflpeheocxgkj.supabase.co']
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
