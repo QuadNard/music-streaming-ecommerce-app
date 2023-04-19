@@ -11,28 +11,9 @@ export function Play(props) {
 
 export function Pause(props) {
   return (
-    <svg
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <rect
-        x={21.8426}
-        y={6}
-        width={8.2963}
-        height={28}
-        rx={2.07407}
-        fill="currentColor"
-      />
-      <rect
-        x={9.65741}
-        y={6}
-        width={8.2963}
-        height={28}
-        rx={2.07407}
-        fill="currentColor"
-      />
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <rect x={21.8426} y={6} width={8.2963} height={28} rx={2.07407} fill="currentColor" />
+      <rect x={9.65741} y={6} width={8.2963} height={28} rx={2.07407} fill="currentColor" />
     </svg>
   );
 }
@@ -86,12 +67,7 @@ export function VolumeMute(props) {
 
 export function Dots(props) {
   return (
-    <svg
-      viewBox="0 0 48 48"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
       <circle cx={5} cy={24} r={5} />
       <circle cx={24} cy={24} r={5} />
       <circle cx={43} cy={24} r={5} />
@@ -101,12 +77,7 @@ export function Dots(props) {
 
 export function Lyrics(props) {
   return (
-    <svg
-      viewBox="0 0 48 48"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -118,12 +89,7 @@ export function Lyrics(props) {
 
 export function AirPlay(props) {
   return (
-    <svg
-      viewBox="0 0 59 59"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 59 59" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path d="M10.498 51.099l1.3-1.5c.3-.3.3-.8 0-1.1-10.5-9.7-11.2-26.2-1.4-36.7 9.8-10.5 26.2-11.2 36.7-1.4 10.5 9.8 11.2 26.2 1.4 36.7-.5.5-.9 1-1.4 1.4-.3.3-.3.8 0 1.1l1.3 1.5c.3.3.8.3 1.1.1 12-11.1 12.7-29.7 1.7-41.7-11.1-12-29.7-12.7-41.7-1.7-12 11-12.7 29.7-1.7 41.7.5.6 1.1 1.1 1.7 1.7.3.2.7.2 1-.1z" />
       <path d="M11.798 29.498c0-9.7 7.9-17.6 17.6-17.6 9.7 0 17.6 8 17.6 17.7 0 4.8-2 9.5-5.5 12.8-.3.3-.3.8 0 1.1l1.3 1.5c.3.3.8.4 1.1.1 8.5-8 8.9-21.3 1-29.8s-21.3-8.9-29.8-1-9 21.2-1.1 29.7c.3.3.6.7 1 1 .3.3.8.3 1.1 0l1.3-1.5c.3-.3.3-.8 0-1.1-3.5-3.3-5.6-8-5.6-12.9z" />
       <path d="M20.198 29.498c0-5.1 4.1-9.2 9.2-9.2s9.2 4.1 9.2 9.2c0 2.5-1 4.8-2.8 6.6-.3.3-.3.8 0 1.1l1.3 1.5c.3.3.8.3 1.1 0 5-4.9 5.2-12.9.3-18s-12.9-5.2-18-.3-5.2 12.9-.3 18l.3.3c.3.3.8.3 1.1 0l1.3-1.5c.3-.3.3-.8 0-1.1-1.7-1.7-2.7-4.1-2.7-6.6z" />
