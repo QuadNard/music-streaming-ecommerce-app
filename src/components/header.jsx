@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../assets/Headphones.png';
+import Disc from '../../public/disc.webp';
 import { useEffect, useState } from 'react';
 import { HamburgerIcon } from './icons/hamburger';
 import { Container } from './container';
@@ -36,9 +37,10 @@ export const Header = ({ setCartSliderIsOpen }) => {
     <header className="fixed top-0 left-0 w-full border-b border-white-a08 backdrop-blur-[12px]">
       <Container className="flex h-navigation-height">
         <Link className="flex items-center text-md" href="/">
-          <Image src={Logo} alt="logo" width={100} height={100} className="mr-4 h-4 w-4" />{' '}
+          <Image src={Disc} alt="logo" width={100} height={100} className="mr-6 h-6 w-6 rounded-full"  />{' '}
           MaadSounds
         </Link>
+      
 
         <div
           className={classNames(

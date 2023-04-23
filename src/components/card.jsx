@@ -50,7 +50,7 @@ const Card = ({ price }) => {
         <Link href="/audio/player">
           <Button>
             <BsMusicPlayerFill className="h-5 w-5 text-white" />
-            Play Tunes
+            Play Tune
           </Button>
         </Link>
 
