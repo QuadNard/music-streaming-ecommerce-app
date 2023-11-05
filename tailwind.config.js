@@ -1,86 +1,132 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
+const paddingSafe = plugin(({ addUtilities, config, e }) => {
+  const paddings = config('theme.padding', {});
+  const variants = config('variants.padding', {});
+
+  const utilities = Object.entries(paddings).flatMap(([modifier, size]) => ({
+    [`.${e(`p-${modifier}-safe`)}`]: {
+      'padding-top': `max(${size}, env(safe-area-inset-top))`,
+      'padding-bottom': `max(${size}, env(safe-area-inset-bottom))`,
+      'padding-left': `max(${size}, env(safe-area-inset-left))`,
+      'padding-right': `max(${size}, env(safe-area-inset-right))`,
+    },
+    [`.${e(`py-${modifier}-safe`)}`]: {
+      'padding-top': `max(${size}, env(safe-area-inset-top))`,
+      'padding-bottom': `max(${size}, env(safe-area-inset-bottom))`,
+    },
+    [`.${e(`px-${modifier}-safe`)}`]: {
+      'padding-left': `max(${size}, env(safe-area-inset-left))`,
+      'padding-right': `max(${size}, env(safe-area-inset-right))`,
+    },
+    [`.${e(`pt-${modifier}-safe`)}`]: {
+      'padding-top': `max(${size}, env(safe-area-inset-top))`,
+    },
+    [`.${e(`pr-${modifier}-safe`)}`]: {
+      'padding-right': `max(${size}, env(safe-area-inset-right))`,
+    },
+    [`.${e(`pb-${modifier}-safe`)}`]: {
+      'padding-bottom': `max(${size}, env(safe-area-inset-bottom))`,
+    },
+    [`.${e(`pl-${modifier}-safe`)}`]: {
+      'padding-left': `max(${size}, env(safe-area-inset-left))`,
+    },
+  }));
+
+  addUtilities(utilities, variants);
+});
+
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/app/**/*.{js,ts,jsx,tsx}'
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: '"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif'
-      },
-      fontSize: {
-        xs: '1.3rem',
-        sm: '1.4rem',
-        md: '1.6rem',
-        lg: '1.8rem',
-        xl: ['2.2rem', '1.3'],
-        '2xl': '2.4rem',
-        '3xl': '2.6rem',
-        '4xl': '3.2rem',
-        '5xl': '4rem',
-        '6xl': ['4.4rem', '1.1'],
-        '7xl': ['4.8rem', '1.1'],
-        '8xl': ['8rem', '1.1']
+      boxShadow: {
+        floaty:
+          '0px 0px 2px 1px rgba(0, 0, 0, 0.04), 0 2px 8px -2px rgba(0, 0, 0, 0.04), 0 4px 18px -4px rgba(0, 0, 0, 0.06), 0 8px 42px -6px rgba(0, 0, 0, 0.12)',
+        phone:
+          'inset 1px 1px 8px rgba(255, 255, 255, 0.8), inset -1px -1px 8px rgba(0, 0, 0, 0.1)',
+        'phone-invert':
+          'inset 1px 1px 8px rgba(255, 255, 255, 0.2), inset -1px -1px 8px rgba(0, 0, 0, 0.8)',
       },
       colors: {
-        transparent: 'transparent',
-        white: '#fff',
-        'off-white': '#f7f8f8',
-        'transparent-white': 'rgba(255, 255, 255, 0.08)',
-        'white-a08': 'rgba(255, 255, 255, 0.08)',
-        background: '#000212',
-        grey: '#858699',
-        'grey-dark': '#222326',
-        'primary-text': '#b4bcd0',
-        'lime-green': '#00ff00',
-        'sky-blue': '#00ffff'
+        dimmmensions: {
+          400: '#b488fb',
+          500: '#9a59f6',
+        },
+        dribbble: {
+          400: '#f377a9',
+          500: '#ea4c89',
+        },
+        mastodon: {
+          400: '#7475ff',
+          500: '#595aff',
+        },
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+        },
+        symbolist: {
+          400: '#f8719d',
+          500: '#f1437b',
+        },
+        twitter: {
+          400: '#53bcf9',
+          500: '#1da1f2',
+        },
+        typometer: {
+          400: '#22d3ee',
+          500: '#06b6d4',
+        },
+        zinc: {
+          150: '#ececee',
+          250: '#dcdce0',
+          350: '#bbbbc1',
+          450: '#898992',
+          550: '#62626b',
+          650: '#494951',
+          750: '#333338',
+          850: '#202023',
+          950: '#121215',
+        },
+        vercel: '#0070F3',
       },
-      spacing: {
-        0: '0',
-        1: '0.4rem',
-        2: '0.8rem',
-        3: '1.2rem',
-        4: '1.6rem',
-        5: '2rem',
-        6: '2.4rem',
-        7: '2.8rem',
-        8: '3.2rem',
-        9: '3.6rem',
-        10: '4rem',
-        11: '4.4rem',
-        12: '4.8rem',
-        13: '5.2rem',
-        14: '5.6rem',
-        15: '6rem',
-        16: '6.4rem',
-        'navigation-height': 'var(--navigation-height)'
+      fontSize: {
+        '2xs': [
+          '0.65rem',
+          {
+            lineHeight: 1,
+          },
+        ],
+        '3xs': [
+          '0.55rem',
+          {
+            lineHeight: 1,
+          },
+        ],
       },
-      backgroundImage: {
-        'primary-gradient':
-          'linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%)',
-        'hero-gradient':
-          'radial-gradient(ellipse 50% 80% at 20% 40%,rgba(93,52,221,0.1),transparent), radial-gradient(ellipse 50% 80% at 80% 50%,rgba(120,119,198,0.15),transparent)',
-        'page-gradient':
-          'radial-gradient(ellipse 80% 50% at 50% -20%,rgba(120,119,198,0.3), transparent)'
+      maxWidth: ({ theme }) => ({
+        'screen-md-8': `calc(${theme('screens.md')} + ${theme('spacing.16')})`,
+        'screen-md-12': `calc(${theme('screens.md')} + ${theme('spacing.24')})`,
+        'screen-md-16': `calc(${theme('screens.md')} + ${theme('spacing.32')})`,
+      }),
+      transitionProperty: {
+        DEFAULT:
+          'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, text-decoration-color',
       },
-      boxShadow: {
-        primary: 'rgb(80 63 205 / 50%) 0px 1px 40px'
-      },
-      transitionDelay: {
-        0: '0ms'
-      },
-      keyframes: {
-        'fade-in': {
-          from: { opacity: 0, transform: 'translateY(-10px)' },
-          to: { opacity: 1, transform: 'none' }
-        }
-      },
-      animation: {
-        'fade-in': 'fade-in 1000ms var(--animation-delay, 0ms) ease forwards'
-      }
-    }
+    },
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography'), paddingSafe],
 };
